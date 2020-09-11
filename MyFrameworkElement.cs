@@ -22,24 +22,6 @@ namespace CrashWPF
         {
             base.OnRender(drawingContext);
 
-            //if (shouldBeAntiAliased != isAntiAliased)
-            //{
-            //    isAntiAliased = shouldBeAntiAliased;
-            //    if (isAntiAliased)
-            //    {
-            //        this.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Aliased);
-            //    }
-            //    else
-            //    {
-            //        this.SetValue(RenderOptions.EdgeModeProperty, EdgeMode.Unspecified);
-            //    }
-            //}
-
-            //Rect rect = new Rect(0, 0, ActualWidth, ActualHeight);
-            //drawingContext.DrawRectangle(Brushes.Pink, null, rect);
-
-            base.OnRender(drawingContext);
-
             var x = DataSet.Get();
 
             StreamGeometry geo = new StreamGeometry();
@@ -69,9 +51,6 @@ namespace CrashWPF
             var generatedGeometry = geo;
 
             generatedGeometry.Freeze();
-
-            Rect bounds = new Rect(new Point(0, 0), RenderSize);
-            //drawingContext.DrawRectangle(Brushes.Black, null, bounds);
 
             drawingContext.DrawGeometry(null, thePen, generatedGeometry);
         }
